@@ -33,7 +33,8 @@ class Firebase:
     def __init__(self, config):
         self.api_key = config["apiKey"]
         self.auth_domain = config["authDomain"]
-        self.database_url = config["databaseURL"]
+        if "databaseURL" in config:
+          self.database_url = config["databaseURL"]
         self.storage_bucket = config["storageBucket"]
         self.credentials = None
         self.requests = requests.Session()
